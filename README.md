@@ -10,3 +10,4 @@
 3 - pip install -r requirment.txt
 ---
 4 - create .env file and put your postgresql setting
+---
