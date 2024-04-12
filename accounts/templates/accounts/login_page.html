@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin: 0 0 20px 0;
+            padding: 0;
+            text-align: center;
+        }
+        .form-field {
+            margin-bottom: 20px;
+        }
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-field input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-field input[type=submit] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        .form-field input[type=submit]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form action="{% url 'login-page' %}" method="post">
+        <div class="form-field">
+            <label>Email:</label>
+            {{ form.email }}
+        </div>
+        <div class="form-field">
+            <label>Password:</label>
+            {{ form.password }}
+        </div>
+        <div class="form-field">
+            <label>Captcha:</label>
+            {{ form.captcha }}
+        </div>
+        {% if form.errors %}
+          {{ form.errors }}
+        {% endif %}
+        <div class="form-field">
+            <input type="submit" value="Login">
+        </div>
+        <p><a href="{% url 'forget-password-page' %}">forget_password</a></p>
+        <p><a href="{% url 'singup-page' %}">create account</a></p>
+    </form>
+</div>
+
+</body>
+</html>
