@@ -1,5 +1,5 @@
 import time
-
+import os
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
@@ -28,7 +28,7 @@ class LoginView(View):
             user = authenticate(email=email, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponse('logged in') # TODO: redirect to home page
+                return redirect('index-page')
 
             form.add_error('', 'email or password is incorrect')
 
@@ -70,7 +70,7 @@ class ForgotPasswordView(View):
             email = form.cleaned_data.get('email')
             if user := User.objects.filter(email=email).first():
                 send_email(subject='forget password', context={'user':user}, to=email, template_name='accounts/forget_pass_email_body.html')
-                return HttpResponse('Email sent successfully') # TODO: add better message
+                return HttpResponse('<h2><center>Forgot password form has been sent to your email, check your email</center></h2>')
 
             form.add_error('', 'email not found')
 
