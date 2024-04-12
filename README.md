@@ -7,7 +7,7 @@
 ---
 2 - python3 -m venv venv
 ---
-3 - pip install -r requirment.txt
+3 - pip install -r requirement.txt
 ---
 4 - create .env file and put your postgresql setting
 ---
