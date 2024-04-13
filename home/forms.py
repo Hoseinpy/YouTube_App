@@ -1,5 +1,7 @@
 from django import forms
 
+from home.models import Category
+
 
 class UploadForm(forms.Form):
     title = forms.CharField(max_length=100)

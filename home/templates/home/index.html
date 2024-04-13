@@ -64,7 +64,7 @@
   <div class="video-item">
     {% for v in videos %}
     <a href="{% url 'detail-page' video_id=v.id %}"><img src="{{ v.thumbnail.url }}" alt="{{ v.title }}" class="video-thumbnail"></a>
-    <div class="video-title">{{ v.title }}</div>
+    <div class="video-title"><h3>{{ v.title }}</h3></div>
     <p>{{ v.user }}</p>
     <p>{{ v.created }}</p>
     {% endfor %}
