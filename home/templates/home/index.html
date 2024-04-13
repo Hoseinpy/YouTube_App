@@ -1,10 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vbox</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  .header {
+    background-color: #aeb842;
+    color: #FFFFFF;
+    padding: 1px 0;
+    text-align: center;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  .video-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    overflow: hidden;
+  }
+  .video-title {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .video-thumbnail {
+    width: 100%;
+    height: auto;
+  }
+  .redirect-button {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  .redirect-button:hover {
+    background-color: #0056b3;
+  }
+  .button-container {
+    text-align: right;
+  }
+</style>
 </head>
 <body>
-    <h1>this is home</h1>
+<div class="header">
+  <h1>Vbox</h1>
+</div>
+<div class="button-container">
+  <a href="{% url 'upload-video-page' %}" class="redirect-button">upload video</a>
+</div>
+
+<div class="video-grid">
+  <div class="video-item">
+    {% for v in videos %}
+    <a href="{% url 'detail-page' video_id=v.id %}"><img src="{{ v.thumbnail.url }}" alt="{{ v.title }}" class="video-thumbnail"></a>
+    <div class="video-title">{{ v.title }}</div>
+    <p>{{ v.user }}</p>
+    <p>{{ v.created }}</p>
+    {% endfor %}
+</div>
+</div>
+
 </body>
 </html>

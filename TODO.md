@@ -1,1 +1,7 @@
 - [ ] add swagger for api
+- [ ] add like, save and dislike
+- [ ] add resolutions
+- [x] add comment
+- [ ] add category
+- [ ] add tag
+- [ ] fix thumbnail upload
